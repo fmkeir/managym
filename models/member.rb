@@ -11,6 +11,14 @@ class Member
     @goal = options["goal"]
   end
 
+  def full_name()
+    return "#{@first_name} #{@last_name}"
+  end
+
+  def formal_name()
+    return "#{@first_name[0]}. #{@last_name}"
+  end
+
   def save()
     sql = "INSERT INTO members
     (first_name, last_name, goal)
