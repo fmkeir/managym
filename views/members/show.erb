@@ -1,2 +1,8 @@
 <h1><b>Member profile:</b> <%= @member.full_name %></h1>
 <h2><b>Goal:</b> <%= @member.goal %></h2>
+<form class="" action="/members/<%= @member.id %>/edit" method="get">
+  <input type="submit" value="Edit member">
+</form>
+<form class="" action="/members/<%= @member.id %>/delete" method="post">
+  <input type="submit" value="Delete member">
+</form>

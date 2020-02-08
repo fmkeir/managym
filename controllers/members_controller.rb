@@ -28,3 +28,8 @@ post '/members/:id' do
   Member.new(params).update()
   redirect to '/members'
 end
+
+post '/members/:id/delete' do
+  Member.find(params[:id]).delete()
+  redirect to '/members'
+end
