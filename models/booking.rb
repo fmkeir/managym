@@ -25,6 +25,18 @@ class Booking
     SqlRunner.run(sql, values)
   end
 
+  def member()
+    sql = "SELECT * FROM members WHERE id = $1"
+    values = [@member_id]
+    return Member.new(SqlRunner.run(sql, values)[0])
+  end
+
+  def session()
+    sql = "SELECT * FROM sessions WHERE id = $1"
+    values = [@session_id]
+    return Session.new(SqlRunner.run(sql, values)[0])
+  end
+
   def self.all()
     sql = "SELECT * FROM bookings"
     return SqlRunner.run(sql).map {|booking| Booking.new(booking)}
