@@ -1,0 +1,17 @@
+<h1>Bookings</h1>
+
+<table>
+  <tr>
+    <th>Member</th>
+    <th>Session</th>
+    <th>Trainer</th>
+  </tr>
+  <% for booking in @bookings %>
+  <tr>
+    <td><%= booking.member().full_name() %></td>
+    <td><%= booking.session().type() %></td>
+    <td><%= booking.session().trainer() %></td>
+    <td><a href="/bookings/<%= booking.id %>"> View session</a></td>
+  </tr>
+  <% end %>
+</table>
