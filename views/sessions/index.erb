@@ -1,0 +1,16 @@
+<h1>Sessions</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Trainer</th>
+    <th>Capacity</th>
+  </tr>
+  <% for session in @sessions %>
+  <tr>
+    <td><%= session.type %></td>
+    <td><%= session.trainer %></td>
+    <td><%= session.capacity %></td>
+  </tr>
+  <% end %>
+</table>

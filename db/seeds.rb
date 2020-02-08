@@ -3,6 +3,7 @@ require_relative('../models/member')
 require_relative('../models/session')
 require_relative('../models/booking')
 
+Booking.delete_all()
 Member.delete_all()
 Session.delete_all()
 
@@ -20,12 +21,12 @@ member1.save()
 member2.save()
 
 session1 = Session.new({
-  "type" => "Graham",
+  "type" => "Spin",
   "trainer" => "George Smith",
   "capacity" => 5
   })
 session2 = Session.new({
-  "type" => "Nil",
+  "type" => "Powerlifting",
   "trainer" => "Nicole Greene",
   "capacity" => 30
   })
