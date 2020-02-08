@@ -11,6 +11,10 @@
     <td><%= session.type %></td>
     <td><%= session.trainer %></td>
     <td><%= session.capacity %></td>
+    <td><a href="/sessions/<%= session.id %>"> View session</a></td>
   </tr>
   <% end %>
 </table>
+<form class="" action="/sessions/new" method="get">
+  <input type="submit" value="Create new session">
+</form>

@@ -1,3 +1,9 @@
 <h1><b>Class information:</b> <%= @session.type %></h1>
 <h2><b>Trainer:</b> <%= @session.trainer %></h2>
 <h2><b>Capacity:</b> <%= @session.capacity %></h2>
+<form class="" action="/sessions/<%= @session.id %>/edit" method="get">
+  <input type="submit" value="Edit session">
+</form>
+<form class="" action="/sessions/<%= @session.id %>/delete" method="post">
+  <input type="submit" value="Delete session">
+</form>

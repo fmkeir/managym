@@ -28,3 +28,8 @@ post '/sessions/:id' do
   Session.new(params).update()
   redirect to '/sessions'
 end
+
+post '/sessions/:id/delete' do
+  Session.find(params[:id]).delete()
+  redirect to '/sessions'
+end
