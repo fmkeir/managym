@@ -2,3 +2,7 @@
 <h2><b>Member:</b> <%= @booking.member.full_name %></h2>
 <h2><b>Type:</b> <%= @booking.session.type %></h2>
 <h2><b>Trainer:</b> <%= @booking.session.trainer %></h2>
+
+<form class="" action="/bookings/<%= @booking.id %>/delete" method="post">
+  <input type="submit" value="Delete booking">
+</form>
