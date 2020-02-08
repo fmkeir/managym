@@ -21,8 +21,34 @@ class Member
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
+  def update()
+    sql = "UPDATE members
+    SET (first_name, last_name, goal)
+    = ($1, $2, $3)
+    WHERE id = $4"
+    values = [@first_name, @last_name, @goal, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE FROM members WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM members"
+    return SqlRunner.run(sql).map {|member| Member.new(member)}
+  end
+
   def self.delete_all()
     sql = "DELETE FROM members"
     SqlRunner.run(sql)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM members WHERE id = $1"
+    values = [id]
+    return Member.new(SqlRunner.run(sql, values)[0])
   end
 end

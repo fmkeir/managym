@@ -1,3 +1,4 @@
+require('pry')
 require_relative('../models/member')
 
 Member.delete_all()
@@ -13,3 +14,6 @@ member2 = Member.new({"first_name" => "Nil",
   })
 member1.save()
 member2.save()
+
+binding.pry
+nil
