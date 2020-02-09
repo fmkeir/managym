@@ -1,7 +1,25 @@
 <h1><b>Class information:</b> <%= @session.type %></h1>
 <h2><b>Trainer:</b> <%= @session.trainer %></h2>
 <h2><b>Capacity:</b> <%= @session.capacity %></h2>
+<h2><b>Members signed up for session:</b></h2>
 
+<% if @session.members.count >= 1 %>
+<table>
+  <tr>
+    <th>Member</th>
+    <th>Goal</th>
+  </tr>
+  <% for member in @session.members() %>
+  <tr>
+    <td><%= member.full_name() %></td>
+    <td><%= member.goal() %></td>
+    <td><a href="/members/<%= member.id %>"> View member</a></td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>The session is currently empty</p>
+<% end %>
 <form class="" action="/sessions/<%= @session.id %>/edit" method="get">
   <input type="submit" value="Edit session">
 </form>
