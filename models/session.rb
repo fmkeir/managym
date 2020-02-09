@@ -43,7 +43,6 @@ class Session
     WHERE bookings.session_id = $1"
     values = [@id]
     return  SqlRunner.run(sql, values).map {|member| Member.new(member)}
-
   end
 
   def self.all()

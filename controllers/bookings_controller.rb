@@ -27,3 +27,5 @@ post "/bookings/:id/delete" do
   Booking.find(params[:id]).delete()
   redirect to "/bookings"
 end
+
+# Bookings can't be edited only created/deleted
