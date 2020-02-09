@@ -1,8 +1,18 @@
 <form action="/bookings" method="post">
   <label for="member_id">Member ID:</label>
-    <input type="text" name="member_id"/><br/>
-  <label for="session_id">Session ID:</label>
-    <input type="text" name="session_id"/><br/>
+  <select name="member_id">
+    <% for member in @members %>
+    <option value="<%= member.id%>"><%= member.full_name %></option>
+    <% end %>
+  </select>
+  <select name="session_id">
+    <% for session in @sessions %>
+    <option value="<%= session.id%>"><%= session.type %> with <%= session.trainer %></option>
+    <% end %>
+  </select>
 
   <input type="submit" value="Create Booking"/>
+    <!-- <input type="text" name="member_id"/><br/>
+  <label for="session_id">Session ID:</label>
+    <input type="text" name="session_id"/><br/> -->
 </form>

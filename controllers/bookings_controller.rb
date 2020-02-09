@@ -1,4 +1,6 @@
 require_relative('../models/booking')
+require_relative('../models/member')
+require_relative('../models/session')
 
 get "/bookings" do
   @bookings = Booking.all()
@@ -6,6 +8,8 @@ get "/bookings" do
 end
 
 get '/bookings/new' do
+  @members = Member.all()
+  @sessions = Session.all()
   erb(:"bookings/new")
 end
 
