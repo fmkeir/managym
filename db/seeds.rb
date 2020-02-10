@@ -20,15 +20,26 @@ member2 = Member.new({
 member1.save()
 member2.save()
 
+room1 = Room.new({
+  "name" => "Studio",
+  "capacity" => 5,
+  })
+room2 = Room.new({
+  "name" => "Weights 1",
+  "capacity" => 30,
+  })
+room1.save()
+room2.save()
+
 session1 = Session.new({
   "type" => "Spin",
   "trainer" => "George Smith",
-  "capacity" => 5
+  "room_id" => room1.id
   })
 session2 = Session.new({
   "type" => "Powerlifting",
   "trainer" => "Nicole Greene",
-  "capacity" => 30
+  "room_id" => room2.id
   })
 session1.save()
 session2.save()

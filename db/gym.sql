@@ -1,6 +1,13 @@
 DROP TABLE IF EXISTS bookings;
 DROP TABLE IF EXISTS members;
 DROP TABLE IF EXISTS sessions;
+DROP TABLE IF EXISTS rooms;
+
+CREATE TABLE rooms (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  capacity INT
+);
 
 CREATE TABLE members (
   id SERIAL PRIMARY KEY,
@@ -13,7 +20,7 @@ CREATE TABLE sessions (
   id SERIAL PRIMARY KEY,
   type VARCHAR(255),
   trainer VARCHAR(255),
-  Capacity INT
+  room_id INT REFERENCES rooms(id) ON DELETE CASCADE
 );
 
 CREATE TABLE bookings (

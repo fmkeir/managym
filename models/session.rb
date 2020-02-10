@@ -1,32 +1,32 @@
 require_relative('../db/sql_runner')
 
 class Session
-  attr_accessor :type, :trainer, :capacity
+  attr_accessor :type, :trainer, :room_id
   attr_reader :id
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @type = options["type"]
     @trainer = options["trainer"]
-    @capacity = options["capacity"].to_i
+    @room_id = options["room_id"].to_i
   end
 
   def save()
     sql = "INSERT INTO sessions
-    (type, trainer, capacity)
+    (type, trainer, room_id)
     VALUES
     ($1, $2, $3)
     RETURNING id"
-    values = [@type, @trainer, @capacity]
+    values = [@type, @trainer, @room_id]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
   def update()
     sql = "UPDATE sessions
-    SET (type, trainer, capacity)
+    SET (type, trainer, room_id)
     = ($1, $2, $3)
     WHERE id = $4"
-    values = [@type, @trainer, @capacity, @id]
+    values = [@type, @trainer, @room_id, @id]
     SqlRunner.run(sql, values)
   end
 
