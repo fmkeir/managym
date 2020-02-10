@@ -11,6 +11,25 @@ class Session
     @room_id = options["room_id"].to_i
   end
 
+  def members()
+    sql = "SELECT members.* FROM members
+    INNER JOIN bookings
+    ON bookings.member_id = members.id
+    WHERE bookings.session_id = $1"
+    values = [@id]
+    return  SqlRunner.run(sql, values).map {|member| Member.new(member)}
+  end
+
+  def capacity()
+    sql = "SELECT capacity FROM rooms WHERE id = $1"
+    values = [@room_id]
+    return SqlRunner.run(sql, values)[0]["capacity"].to_i
+  end
+
+  def enough_space?()
+    return members().count() < capacity()
+  end
+
   def save()
     sql = "INSERT INTO sessions
     (type, trainer, room_id)
@@ -34,21 +53,6 @@ class Session
     sql = "DELETE FROM sessions WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
-  end
-
-  def members()
-    sql = "SELECT members.* FROM members
-    INNER JOIN bookings
-    ON bookings.member_id = members.id
-    WHERE bookings.session_id = $1"
-    values = [@id]
-    return  SqlRunner.run(sql, values).map {|member| Member.new(member)}
-  end
-
-  def capacity()
-    sql = "SELECT capacity FROM rooms WHERE id = $1"
-    values = [@room_id]
-    return SqlRunner.run(sql, values)[0]["capacity"]
   end
 
   def self.all()
