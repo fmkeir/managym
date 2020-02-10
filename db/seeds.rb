@@ -3,18 +3,35 @@ require_relative('../models/member')
 require_relative('../models/session')
 require_relative('../models/booking')
 require_relative('../models/room')
+require_relative('../models/membership')
 
 Booking.delete_all()
 Member.delete_all()
 Session.delete_all()
 Room.delete_all()
+Membership.delete_all()
+
+standard = Membership.new({
+  "type" => "standard",
+  "start_hour" => 7,
+  "end_hour" => 22,
+  })
+off_peak = Membership.new({
+  "type" => "off_peak",
+  "start_hour" => 16,
+  "end_hour" => 22,
+  })
+standard.save()
+off_peak.save()
 
 member1 = Member.new({
+  "membership_id" => standard.id,
   "first_name" => "Graham",
   "last_name" => "Grahamson",
   "goal" => "Get stronger"
   })
 member2 = Member.new({
+  "membership_id" => off_peak.id,
   "first_name" => "Nil",
   "last_name" => "Nilson",
   "goal" => "Get faster"
