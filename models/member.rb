@@ -45,6 +45,12 @@ class Member
     SqlRunner.run(sql, values)
   end
 
+  def membership_type()
+    sql = "SELECT type FROM memberships WHERE id = $1"
+    values = [@membership_id]
+    return SqlRunner.run(sql, values)[0]["type"]
+  end
+
   def self.all()
     sql = "SELECT * FROM members"
     return SqlRunner.run(sql).map {|member| Member.new(member)}
