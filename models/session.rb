@@ -45,6 +45,12 @@ class Session
     return  SqlRunner.run(sql, values).map {|member| Member.new(member)}
   end
 
+  def capacity()
+    sql = "SELECT capacity FROM rooms WHERE id = $1"
+    values = [@room_id]
+    return SqlRunner.run(sql, values)[0]["capacity"]
+  end
+
   def self.all()
     sql = "SELECT * FROM sessions"
     return SqlRunner.run(sql).map {|session| Session.new(session)}
