@@ -2,10 +2,12 @@ require('pry')
 require_relative('../models/member')
 require_relative('../models/session')
 require_relative('../models/booking')
+require_relative('../models/room')
 
 Booking.delete_all()
 Member.delete_all()
 Session.delete_all()
+Room.delete_all()
 
 member1 = Member.new({
   "first_name" => "Graham",
