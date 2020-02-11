@@ -21,7 +21,15 @@ class Member
   end
 
   def can_attend?(session)
-    return session.start_time_decimal > membership().start_time_decimal && session.start_time_decimal + session.duration.to_f/60 < membership().end_time_decimal
+    session_time = session.start_time_decimal
+    session_length = session.duration.to_f/60
+    can_book_from = membership().start_time_decimal
+    can_book_to = membership().end_time_decimal
+
+    start_time_allowed = session_time > can_book_from
+    end_time_allowed = (session_time + session_length) < can_book_to
+
+    return  start_time_allowed && end_time_allowed
   end
 
   def save()
