@@ -14,8 +14,21 @@ class Session
     @duration = options["duration"].to_i
   end
 
+  # def enough_space?()
+  #   return members().count() < capacity()
+  # end
+
   def enough_space?()
-    return members().count() < capacity()
+    sql = "SELECT
+    (SELECT count(members.*) FROM members
+    INNER JOIN bookings
+    ON bookings.member_id = members.id
+    WHERE bookings.session_id = $1)
+    <
+    (SELECT capacity FROM rooms WHERE id = $2)
+    as result"
+    values = [@id, @room_id]
+    return SqlRunner.run(sql, values)[0]["result"] == "t"
   end
 
   def start_time_decimal()
