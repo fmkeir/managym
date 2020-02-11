@@ -37,6 +37,12 @@ class Booking
     return Session.new(SqlRunner.run(sql, values)[0])
   end
 
+  def self.create(member, session)
+    if member.can_attend?(session) && session.enough_space?()
+      Booking.new({"member_id" => member.id, "session_id" => session.id})
+    end
+  end
+
   def self.all()
     sql = "SELECT * FROM bookings"
     return SqlRunner.run(sql).map {|booking| Booking.new(booking)}
