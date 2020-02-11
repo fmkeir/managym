@@ -1,4 +1,5 @@
 require_relative('../models/member')
+require_relative('../models/membership')
 
 get '/members' do
   @members = Member.all()
@@ -6,6 +7,7 @@ get '/members' do
 end
 
 get '/members/new' do
+  @memberships = Membership.all()
   erb(:"members/new")
 end
 
@@ -16,6 +18,7 @@ end
 
 get '/members/:id/edit' do
   @member = Member.find(params['id'])
+  @memberships = Membership.all()
   erb(:"members/edit")
 end
 

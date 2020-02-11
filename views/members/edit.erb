@@ -3,6 +3,12 @@
     <input type="text" name="first_name" value="<%= @member.first_name %>"/> <br/>
   <label for="last_name">Last Name:</label>
     <input type="text" name="last_name" value="<%= @member.last_name %>"/> <br/>
+  <label for="membership_id">Membership type:</label>
+    <select name="membership_id">
+      <% for membership in @memberships %>
+      <option value="<%= membership.id%>"><%= membership.type.tr('_', ' ').capitalize %></option>
+      <% end %>
+    </select> <br/>
   <label for="goal">Goal:</label>
     <input type="text" name="goal" value="<%= @member.goal %>"/> <br/>
 

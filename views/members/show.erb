@@ -1,4 +1,5 @@
 <h1><b>Member profile:</b> <%= @member.full_name %></h1>
+<h2><b>Membership type:</b> <%= @member.membership_type.tr('_', ' ').capitalize %></h2>
 <h2><b>Goal:</b> <%= @member.goal %></h2>
 <form class="" action="/members/<%= @member.id %>/edit" method="get">
   <input type="submit" value="Edit member">
