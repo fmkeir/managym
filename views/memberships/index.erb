@@ -1,0 +1,20 @@
+<h1>Memberships</h1>
+
+<table>
+  <tr>
+    <th>Membership type</th>
+    <th>Access from</th>
+    <th>Access until</th>
+  </tr>
+  <% for membership in @memberships %>
+  <tr>
+    <td><%= membership.type %></td>
+    <td><%= membership.start_time %></td>
+    <td><%= membership.end_time %></td>
+    <td><a href="/memberships/<%= membership.id %>"> View membership</a></td>
+  </tr>
+  <% end %>
+</table>
+<form class="" action="/memberships/new" method="get">
+  <input type="submit" value="Create new membership">
+</form>
