@@ -18,17 +18,21 @@ class Session
   #   return members().count() < capacity()
   # end
 
+  # def enough_space?()
+  #   sql = "SELECT
+  #   (SELECT count(members.*) FROM members
+  #   INNER JOIN bookings
+  #   ON bookings.member_id = members.id
+  #   WHERE bookings.session_id = $1)
+  #   <
+  #   (SELECT capacity FROM rooms WHERE id = $2)
+  #   as result"
+  #   values = [@id, @room_id]
+  #   return SqlRunner.run(sql, values)[0]["result"] == "t"
+  # end
+
   def enough_space?()
-    sql = "SELECT
-    (SELECT count(members.*) FROM members
-    INNER JOIN bookings
-    ON bookings.member_id = members.id
-    WHERE bookings.session_id = $1)
-    <
-    (SELECT capacity FROM rooms WHERE id = $2)
-    as result"
-    values = [@id, @room_id]
-    return SqlRunner.run(sql, values)[0]["result"] == "t"
+    return members_count() < capacity()
   end
 
   def start_time_decimal()
@@ -68,6 +72,15 @@ class Session
     WHERE bookings.session_id = $1"
     values = [@id]
     return  SqlRunner.run(sql, values).map {|member| Member.new(member)}
+  end
+
+  def members_count()
+    sql = "SELECT count(members.*) FROM members
+    INNER JOIN bookings
+    ON bookings.member_id = members.id
+    WHERE bookings.session_id = $1"
+    values = [@id]
+    return SqlRunner.run(sql, values)[0]["count"]
   end
 
   def capacity()
