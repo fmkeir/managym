@@ -2,7 +2,7 @@ require('date')
 require_relative('../db/sql_runner')
 
 class Session
-  attr_accessor :type, :trainer, :room_id, :start_time
+  attr_accessor :type, :trainer, :room_id, :start_time, :duration
   attr_reader :id
 
   def initialize(options)

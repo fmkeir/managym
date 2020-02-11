@@ -20,6 +20,10 @@ class Member
     return "#{@first_name[0]}. #{@last_name}"
   end
 
+  def can_attend?(session)
+    return session.start_time_decimal > membership().start_time_decimal && session.start_time_decimal + session.duration.to_f/60 < membership().end_time_decimal
+  end
+
   def save()
     sql = "INSERT INTO members
     (membership_id, first_name, last_name, goal)
@@ -49,6 +53,12 @@ class Member
     sql = "SELECT type FROM memberships WHERE id = $1"
     values = [@membership_id]
     return SqlRunner.run(sql, values)[0]["type"]
+  end
+
+  def membership()
+    sql = "SELECT * FROM memberships WHERE id = $1"
+    values = [@membership_id]
+    return Membership.new(SqlRunner.run(sql, values)[0])
   end
 
   def self.all()
