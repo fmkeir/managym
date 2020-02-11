@@ -19,8 +19,10 @@ get "/bookings/:id" do
 end
 
 post '/bookings' do
-  Booking.new(params).save()
-  redirect to '/bookings'
+  member = Member.find(params["member_id"])
+  session = Session.find(params["session_id"])
+  @message = Booking.create(member, session)
+  @message == "Done" ? (redirect to '/bookings') : erb(:"bookings/error_create")
 end
 
 post "/bookings/:id/delete" do

@@ -1,5 +1,6 @@
 require('date')
 require_relative('../db/sql_runner')
+require_relative('../helpers/datetime')
 
 class Session
   attr_accessor :type, :trainer, :room_id, :start_time, :duration
@@ -79,7 +80,7 @@ class Session
     ON bookings.member_id = members.id
     WHERE bookings.session_id = $1"
     values = [@id]
-    return SqlRunner.run(sql, values)[0]["count"]
+    return SqlRunner.run(sql, values)[0]["count"].to_i
   end
 
   def capacity()

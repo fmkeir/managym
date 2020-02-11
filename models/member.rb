@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('../models/membership')
 
 class Member
   attr_accessor :membership_id, :first_name, :last_name, :goal

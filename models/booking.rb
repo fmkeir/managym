@@ -38,8 +38,13 @@ class Booking
   end
 
   def self.create(member, session)
-    if member.can_attend?(session) && session.enough_space?()
-      Booking.new({"member_id" => member.id, "session_id" => session.id})
+    if !member.can_attend?(session)
+      return "Error: can't attend"
+    elsif !session.enough_space?()
+      return "Error: not enough space"
+    else
+      Booking.new({"member_id" => member.id, "session_id" => session.id}).save()
+      return "Done"
     end
   end
 
