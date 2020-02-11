@@ -1,7 +1,8 @@
+require('date')
 require_relative('../db/sql_runner')
 
 class Session
-  attr_accessor :type, :trainer, :room_id
+  attr_accessor :type, :trainer, :room_id, :start_time
   attr_reader :id
 
   def initialize(options)
@@ -9,19 +10,26 @@ class Session
     @type = options["type"]
     @trainer = options["trainer"]
     @room_id = options["room_id"].to_i
+    @start_time = options["start_time"]
+    @duration = options["duration"].to_i
   end
 
   def enough_space?()
     return members().count() < capacity()
   end
 
+  def start_time_decimal()
+    date_object = DateTime.parse(@start_time)
+    return date_object.hour + date_object.minute.to_f/60
+  end
+
   def save()
     sql = "INSERT INTO sessions
-    (type, trainer, room_id)
+    (type, trainer, room_id, start_time, duration)
     VALUES
-    ($1, $2, $3)
+    ($1, $2, $3, $4, $5)
     RETURNING id"
-    values = [@type, @trainer, @room_id]
+    values = [@type, @trainer, @room_id, @start_time, @duration]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 

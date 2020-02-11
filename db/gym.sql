@@ -13,8 +13,8 @@ CREATE TABLE rooms (
 CREATE TABLE memberships (
   id SERIAL PRIMARY KEY,
   type VARCHAR(255),
-  start_hour INT,
-  end_hour INT
+  start_time TIME,
+  end_time TIME
 );
 
 CREATE TABLE members (
@@ -29,7 +29,9 @@ CREATE TABLE sessions (
   id SERIAL PRIMARY KEY,
   type VARCHAR(255),
   trainer VARCHAR(255),
-  room_id INT REFERENCES rooms(id) ON DELETE CASCADE
+  room_id INT REFERENCES rooms(id) ON DELETE CASCADE,
+  start_time TIMESTAMP,
+  duration INT
 );
 
 CREATE TABLE bookings (
