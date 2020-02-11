@@ -36,8 +36,7 @@ class Session
   end
 
   def start_time_decimal()
-    date_object = DateTime.parse(@start_time)
-    return date_object.hour + date_object.minute.to_f/60
+    return time_decimal(@start_time)
   end
 
   def save()

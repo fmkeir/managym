@@ -1,5 +1,6 @@
 require('date')
 require_relative('../db/sql_runner')
+require_relative('../helpers/datetime')
 
 class Membership
   attr_accessor :type, :start_time, :end_time
@@ -10,11 +11,6 @@ class Membership
     @type = options["type"]
     @start_time = options["start_time"]
     @end_time = options["end_time"]
-  end
-
-  def time_decimal(time_to_convert)
-    date_object = DateTime.parse(time_to_convert)
-    return date_object.hour + date_object.minute.to_f/60
   end
 
   def start_time_decimal()
