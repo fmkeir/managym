@@ -1,0 +1,9 @@
+<h1><b>Room details:</b> </h1>
+<h2><b>Name:</b> <%= @room.name %></h2>
+<h2><b>Capacity:</b> <%= @room.capacity %></h2>
+<form class="" action="/rooms/<%= @room.id %>/edit" method="get">
+  <input type="submit" value="Edit room">
+</form>
+<form class="" action="/rooms/<%= @room.id %>/delete" method="post">
+  <input type="submit" value="Delete room">
+</form>

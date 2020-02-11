@@ -1,0 +1,18 @@
+<h1>Rooms</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Capacity</th>
+  </tr>
+  <% for room in @rooms %>
+  <tr>
+    <td><%= room.name %></td>
+    <td><%= room.capacity %></td>
+    <td><a href="/rooms/<%= room.id %>"> View room</a></td>
+  </tr>
+  <% end %>
+</table>
+<form class="" action="/rooms/new" method="get">
+  <input type="submit" value="Create new room">
+</form>

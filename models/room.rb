@@ -44,4 +44,10 @@ class Room
     sql = "DELETE FROM rooms"
     SqlRunner.run(sql)
   end
+
+  def self.find(id)
+    sql = "SELECT * FROM rooms WHERE id = $1"
+    values = [id]
+    return Room.new(SqlRunner.run(sql, values)[0])
+  end
 end

@@ -86,7 +86,7 @@ room1 = Room.new({
   "capacity" => 5,
   })
 room2 = Room.new({
-  "name" => "Weights 1",
+  "name" => "Weights",
   "capacity" => 30,
   })
 room1.save()
