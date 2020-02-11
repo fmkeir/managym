@@ -11,7 +11,7 @@
   <tr>
     <td><%= member.first_name %></td>
     <td><%= member.last_name %></td>
-    <td><%= member.membership_type.tr('_', ' ').capitalize %></td>
+    <td><%= member.membership_type_styled %></td>
     <td><%= member.goal %></td>
     <td><a href="/members/<%= member.id %>"> View member</a></td>
   </tr>

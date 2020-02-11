@@ -64,6 +64,10 @@ class Member
     return SqlRunner.run(sql, values)[0]["type"]
   end
 
+  def membership_type_styled()
+    return membership_type().tr('_', ' ').capitalize
+  end
+
   def membership()
     sql = "SELECT * FROM memberships WHERE id = $1"
     values = [@membership_id]

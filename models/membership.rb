@@ -46,6 +46,10 @@ class Membership
     SqlRunner.run(sql, values)
   end
 
+  def type_styled()
+    return type().tr('_', ' ').capitalize
+  end
+
   def self.all()
     sql = "SELECT * FROM memberships"
     return SqlRunner.run(sql).map {|membership| Membership.new(membership)}

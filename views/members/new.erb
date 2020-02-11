@@ -6,7 +6,7 @@
   <label for="membership_id">Membership type:</label>
     <select name="membership_id">
       <% for membership in @memberships %>
-      <option value="<%= membership.id%>"><%= membership.type.tr('_', ' ').capitalize %></option>
+      <option value="<%= membership.id%>"><%= membership.type_styled %></option>
       <% end %>
     </select> <br/>
   <label for="goal">Goal:</label>
