@@ -3,14 +3,20 @@
 <table>
   <tr>
     <th>Type</th>
+    <th>Room</th>
+    <th>Start time</th>
+    <th>Duration</th>
     <th>Trainer</th>
     <th>Capacity</th>
   </tr>
   <% for session in @sessions %>
   <tr>
     <td><%= session.type %></td>
+    <td><%= session.room_name %></td>
+    <td><%= session.start_time %></td>
+    <td><%= session.duration %></td>
     <td><%= session.trainer %></td>
-    <td><%= session.capacity %></td>
+    <td><%= session.members_count %>/<%= session.capacity %></td>
     <td><a href="/sessions/<%= session.id %>"> View session</a></td>
   </tr>
   <% end %>

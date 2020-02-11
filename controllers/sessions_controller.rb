@@ -1,4 +1,5 @@
 require_relative('../models/session')
+require_relative('../models/room')
 
 get '/sessions' do
   @sessions = Session.all()
@@ -6,6 +7,7 @@ get '/sessions' do
 end
 
 get '/sessions/new' do
+  @rooms = Room.all()
   erb(:"sessions/new")
 end
 
@@ -16,6 +18,7 @@ end
 
 get '/sessions/:id/edit' do
   @session = Session.find(params['id'])
+  @rooms = Room.all()
   erb(:"sessions/edit")
 end
 

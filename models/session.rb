@@ -1,6 +1,7 @@
 require('date')
 require_relative('../db/sql_runner')
 require_relative('../helpers/datetime')
+require_relative('../models/room')
 
 class Session
   attr_accessor :type, :trainer, :room_id, :start_time, :duration
@@ -83,10 +84,22 @@ class Session
     return SqlRunner.run(sql, values)[0]["count"].to_i
   end
 
+  def room()
+    sql = "SELECT * FROM rooms WHERE id = $1"
+    values = [@room_id]
+    return Room.new(SqlRunner.run(sql, values)[0])
+  end
+
   def capacity()
     sql = "SELECT capacity FROM rooms WHERE id = $1"
     values = [@room_id]
     return SqlRunner.run(sql, values)[0]["capacity"].to_i
+  end
+
+  def room_name()
+    sql = "SELECT name FROM rooms WHERE id = $1"
+    values = [@room_id]
+    return SqlRunner.run(sql, values)[0]["name"]
   end
 
   def self.all()
