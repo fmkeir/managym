@@ -11,7 +11,8 @@
     <td><%= booking.member().full_name() %></td>
     <td><%= booking.session().type() %></td>
     <td><%= booking.session().trainer() %></td>
-    <td><a href="/bookings/<%= booking.id %>"> View session</a></td>
+    <td><a href="/members/<%= booking.member.id %>"> View member</a></td>
+    <td><a href="/sessions/<%= booking.session.id %>"> View session</a></td>
   </tr>
   <% end %>
 </table>

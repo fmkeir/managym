@@ -2,6 +2,7 @@
 <h2><b>Membership type:</b> <%= @member.membership_type_styled %></h2>
 <h2><b>Goal:</b> <%= @member.goal %></h2>
 
+<% if @member.bookings.count >= 1 %>
 <table>
   <tr>
     <th>Type</th>
@@ -21,6 +22,9 @@
   </tr>
   <% end %>
 </table>
+<% else %>
+<p>This member hasn't made any bookings yet</p>
+<% end %>
 
 <form class="" action="/members/<%= @member.id %>/edit" method="get">
   <input type="submit" value="Edit member">
