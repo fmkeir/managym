@@ -1,7 +1,7 @@
 <form action="/bookings" method="post">
   <table>
     <tr>
-      <td><label for="member_id">Member ID:</label></td>
+      <td><label for="member_id">Member:</label></td>
       <td>
           <select name="member_id">
             <% for member in @members %>
@@ -11,7 +11,7 @@
       </td>
     </tr>
     <tr>
-      <td><label for="session_id">Session ID:</label></td>
+      <td><label for="session_id">Session:</label></td>
       <td>
           <select name="session_id">
             <% for session in @sessions %>
