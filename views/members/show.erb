@@ -1,6 +1,27 @@
 <h1><b>Member profile:</b> <%= @member.full_name %></h1>
 <h2><b>Membership type:</b> <%= @member.membership_type_styled %></h2>
 <h2><b>Goal:</b> <%= @member.goal %></h2>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Room</th>
+    <th>Start time</th>
+    <th>Duration</th>
+    <th>Trainer</th>
+  </tr>
+  <% for booking in @member.bookings() %>
+  <% session = booking.session() %>
+  <tr>
+    <td><%= session.type %></td>
+    <td><%= session.room_name %></td>
+    <td><%= session.start_time %></td>
+    <td><%= session.duration %></td>
+    <td><%= session.trainer %></td>
+  </tr>
+  <% end %>
+</table>
+
 <form class="" action="/members/<%= @member.id %>/edit" method="get">
   <input type="submit" value="Edit member">
 </form>

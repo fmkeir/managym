@@ -2,10 +2,10 @@ require_relative('../models/booking')
 require_relative('../models/member')
 require_relative('../models/session')
 
-# get "/bookings" do
-#   @bookings = Booking.all()
-#   erb(:"bookings/index")
-# end
+get "/bookings" do
+  @bookings = Booking.all()
+  erb(:"bookings/index")
+end
 
 get '/bookings/new' do
   @members = Member.all()

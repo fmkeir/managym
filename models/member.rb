@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('../models/membership')
+require_relative('../helpers/style')
 
 class Member
   attr_accessor :membership_id, :first_name, :last_name, :goal
@@ -72,6 +73,12 @@ class Member
     sql = "SELECT * FROM memberships WHERE id = $1"
     values = [@membership_id]
     return Membership.new(SqlRunner.run(sql, values)[0])
+  end
+
+  def bookings()
+    sql = "SELECT * FROM bookings where member_id = $1"
+    values = [@id]
+    return SqlRunner.run(sql, values).map {|booking| Booking.new(booking)}
   end
 
   def self.all()
