@@ -107,6 +107,11 @@ class Session
     return SqlRunner.run(sql).map {|session| Session.new(session)}
   end
 
+  def self.count()
+    sql = "SELECT count(*) FROM sessions"
+    return SqlRunner.run(sql)[0]["count"].to_i
+  end
+
   def self.delete_all()
     sql = "DELETE FROM sessions"
     SqlRunner.run(sql)

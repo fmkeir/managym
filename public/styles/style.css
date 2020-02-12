@@ -28,10 +28,24 @@ nav a:hover {
   color: #80ffff;
 }
 
+form {
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 40px;;
+}
+
 body {
   margin-left: 195px;
   background-color: #99ccff;
 
+}
+
+footer {
+  color: white;
+  text-shadow: 0 0 2rem #000000;
+  text-shadow: 0 0 1rem #000000;
+  text-shadow: 0 0 0.5rem #000000;
+  text-shadow: 0 0 0.2rem #000000;
 }
 
 .home {
@@ -62,12 +76,4 @@ body {
     rgba(0, 0, 0, 0.6),
     rgba(0, 0, 0, 0.6)
   ), url('../images/background.jpg');
-}
-
-footer {
-  color: white;
-  text-shadow: 0 0 2rem #000000;
-  text-shadow: 0 0 1rem #000000;
-  text-shadow: 0 0 0.5rem #000000;
-  text-shadow: 0 0 0.2rem #000000;
 }

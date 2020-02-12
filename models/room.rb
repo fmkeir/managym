@@ -40,6 +40,11 @@ class Room
     return SqlRunner.run(sql).map {|room| Room.new(room)}
   end
 
+  def self.count()
+    sql = "SELECT count(*) FROM rooms"
+    return SqlRunner.run(sql)[0]["count"].to_i
+  end
+
   def self.delete_all()
     sql = "DELETE FROM rooms"
     SqlRunner.run(sql)

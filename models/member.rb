@@ -86,6 +86,11 @@ class Member
     return SqlRunner.run(sql).map {|member| Member.new(member)}
   end
 
+  def self.count()
+    sql = "SELECT count(*) FROM members"
+    return SqlRunner.run(sql)[0]["count"].to_i
+  end
+
   def self.delete_all()
     sql = "DELETE FROM members"
     SqlRunner.run(sql)
