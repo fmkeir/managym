@@ -39,9 +39,9 @@ class Booking
 
   def self.create(member, session)
     if !member.can_attend?(session)
-      return "Error: can't attend"
+      return "This member's membership isn't valid for the class. Please try another timeslot."
     elsif !session.enough_space?()
-      return "Error: not enough space"
+      return "This class is already full. Please try to book for another class."
     else
       Booking.new({"member_id" => member.id, "session_id" => session.id}).save()
       return "Done"

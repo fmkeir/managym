@@ -1,1 +1,7 @@
-<%= @message %>
+<div class="error">
+<h1>Woops! <b>Booking not created.<b></h1>
+<h1><%= @message %></h1>
+<form class="" action="/bookings/new" method="get">
+  <input type="submit" value="Create new booking">
+</form>
+</div>
