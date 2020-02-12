@@ -1,16 +1,25 @@
 <form action="/bookings" method="post">
-  <label for="member_id">Member ID:</label>
-    <select name="member_id">
-      <% for member in @members %>
-      <option value="<%= member.id%>"><%= member.full_name %></option>
-      <% end %>
-    </select> <br>
-  <label for="session_id">Session ID:</label>
-    <select name="session_id">
-      <% for session in @sessions %>
-      <option value="<%= session.id%>"><%= session.type %> with <%= session.trainer %></option>
-      <% end %>
-    </select> <br>
-
+  <table>
+    <tr>
+      <td><label for="member_id">Member ID:</label></td>
+      <td>
+          <select name="member_id">
+            <% for member in @members %>
+            <option value="<%= member.id%>"><%= member.full_name %></option>
+            <% end %>
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="session_id">Session ID:</label></td>
+      <td>
+          <select name="session_id">
+            <% for session in @sessions %>
+            <option value="<%= session.id%>"><%= session.type %> with <%= session.trainer %></option>
+            <% end %>
+          </select>
+      </td>
+    </tr>
+  </table>
   <input type="submit" value="Create Booking"/>
 </form>

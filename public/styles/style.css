@@ -50,10 +50,6 @@ body {
 
 footer {
   color: white;
-  text-shadow: 0 0 2rem #000000;
-  text-shadow: 0 0 1rem #000000;
-  text-shadow: 0 0 0.5rem #000000;
-  text-shadow: 0 0 0.2rem #000000;
   font-size: 15px;
 }
 
@@ -83,7 +79,7 @@ table {
 }
 
 .error {
-  color: #cc0000;
+  color: #ff4d4d;
 }
 
 .dropdown-content {
