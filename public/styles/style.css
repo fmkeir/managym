@@ -3,6 +3,15 @@ html {
   width: auto;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #80ffff;
+}
+
 nav {
   height: 100%;
   width: 175px;
@@ -11,21 +20,17 @@ nav {
   left: 0;
   background-color: black;
   /* min-width: min-content; */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   padding-top: 20px;
   margin-right: 10px;
+  opacity: 90%;
 }
 
 nav a {
   padding: 1rem;
-  text-decoration: none;
   font-size: 25px;
   color: grey;
-  display: block;
-}
-
-nav a:hover {
-  color: #80ffff;
+  display: inline-block;
 }
 
 form {
@@ -37,7 +42,7 @@ form {
 body {
   margin-left: 195px;
   background-color: #99ccff;
-
+  color: white;
 }
 
 footer {
@@ -61,7 +66,7 @@ footer {
   width: 20%
 }
 
-.home-bg {
+body {
   background-size: cover;
   background-repeat: no-repeat;
   height: auto;
@@ -73,9 +78,13 @@ footer {
   left: 0;
   z-index: -1;
   background-image:linear-gradient(
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0.6)
+    rgba(0, 0, 10, 0.6),
+    rgba(0, 0, 10, 0.6)
   ), url('../images/background.jpg');
+}
+
+body::after {
+
 }
 
 .error {
@@ -84,16 +93,11 @@ footer {
 
 .dropdown-content {
   display: none;
+  left: 175px;
   position: absolute;
-  background-color: dimgray;
+  background-color: black;
   width: 175px;
   z-index: 1;
 }
 
-.dropdown-content a {
-  color: black;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: inline-block;}
