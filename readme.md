@@ -12,7 +12,6 @@ A local gym has asked you to build a piece of software to help them to manage me
 
 #### Extensions Delivered
 
-#### Possible Extensions
-
-- Classes could have a maximum capacity, and users can only be added while there is space remaining.
-- The gym could be able to give its members Premium or Standard membership. Standard members can only be signed up for classes during off-peak hours.
+- [x] Classes could have a maximum capacity, and users can only be added while there is space remaining.
+- [x] The gym could be able to give its members standard or off-peak membership. This membership should control a users access to sessions.
+- [x] When a booking cannot be created, the user should receive an appropriate error message.
