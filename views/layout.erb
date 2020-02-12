@@ -9,10 +9,30 @@
     <nav>
         <a href="/">Home</a>
         <a href="/bookings/new">New Booking</a>
-        <a href="/members">Members</a>
-        <a href="/sessions">Sessions</a>
-        <a href="/rooms">Rooms</a>
-        <a href="/memberships">Memberships</a>
+        <div class="dropdown">
+          <a href="/members">Members</a>
+          <div class="dropdown-content">
+            <a href="/members/new">New Member</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="/sessions">Sessions</a>
+          <div class="dropdown-content">
+            <a href="/sessions/new">New Session</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="/rooms">Rooms</a>
+          <div class="dropdown-content">
+            <a href="/rooms/new">New Room</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="/memberships">Memberships</a>
+          <div class="dropdown-content">
+            <a href="/memberships/new">New Membership</a>
+          </div>
+        </div>
     </nav>
     <%= yield %>
   </body>

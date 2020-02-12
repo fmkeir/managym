@@ -81,3 +81,19 @@ footer {
 .error {
   color: #cc0000;
 }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: dimgray;
+  width: 175px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
