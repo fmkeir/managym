@@ -1,0 +1,29 @@
+nav {
+  height: 100%;
+  width: 175px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  /* min-width: min-content; */
+  overflow-x: hidden;
+  padding-top: 20px;
+  margin-right: 10px;
+}
+
+nav a {
+  padding: 1rem;
+  text-decoration: none;
+  font-size: 25px;
+  color: grey;
+  display: block;
+}
+
+nav a:hover {
+  color: #80ffff;
+}
+
+body {
+  margin-left: 195px;
+  background-color: #ccdcff;
+}

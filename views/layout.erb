@@ -3,17 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Gym Website</title>
+    <link rel="stylesheet" href="/styles/style.css">
   </head>
   <body>
     <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/members">Members</a></li>
-        <li><a href="/sessions">Sessions</a></li>
-        <li><a href="/bookings">Bookings</a></li>
-        <li><a href="/memberships">Memberships</a></li>
-        <li><a href="/rooms">Rooms</a></li>
-      </ul>
+        <a href="/">Home</a>
+        <a href="/bookings/new">New Booking</a>
+        <a href="/members">Members</a>
+        <a href="/sessions">Sessions</a>
+        <a href="/rooms">Rooms</a>
+        <a href="/memberships">Memberships</a>
     </nav>
     <%= yield %>
   </body>
