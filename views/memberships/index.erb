@@ -8,7 +8,7 @@
   </tr>
   <% for membership in @memberships %>
   <tr>
-    <td><%= membership.type %></td>
+    <td><%= membership.type_styled %></td>
     <td><%= membership.start_time %></td>
     <td><%= membership.end_time %></td>
     <td><a href="/memberships/<%= membership.id %>"> View membership</a></td>

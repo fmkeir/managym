@@ -1,4 +1,4 @@
-<h1><%= @membership.type %> <b>membership details:</b> </h1>
+<h1><%= @membership.type_styled %> <b>membership details:</b> </h1>
 <h2><b>Access from:</b> <%= @membership.start_time %></h2>
 <h2><b>Access to:</b> <%= @membership.end_time %></h2>
 <form class="" action="/memberships/<%= @membership.id %>/edit" method="get">

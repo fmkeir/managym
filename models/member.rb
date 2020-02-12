@@ -65,7 +65,7 @@ class Member
   end
 
   def membership_type_styled()
-    return membership_type().tr('_', ' ').capitalize
+    return titlecase_with_spaces(membership_type())
   end
 
   def membership()

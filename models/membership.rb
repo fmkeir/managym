@@ -1,6 +1,7 @@
 require('date')
 require_relative('../db/sql_runner')
 require_relative('../helpers/datetime')
+require_relative('../helpers/style')
 
 class Membership
   attr_accessor :type, :start_time, :end_time
@@ -47,7 +48,7 @@ class Membership
   end
 
   def type_styled()
-    return type().tr('_', ' ').capitalize
+    return titlecase_with_spaces(type())
   end
 
   def self.all()
