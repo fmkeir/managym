@@ -18,9 +18,4 @@ class TestMember < Minitest::Test
     full_name = @member.full_name()
     assert_equal("Bill Billerson", full_name)
   end
-
-  def test_formal_name()
-    formal_name = @member.formal_name()
-    assert_equal("B. Billerson", formal_name)
-  end
 end

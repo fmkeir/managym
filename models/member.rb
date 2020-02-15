@@ -18,10 +18,6 @@ class Member
     return "#{@first_name} #{@last_name}"
   end
 
-  def formal_name()
-    return "#{@first_name[0]}. #{@last_name}"
-  end
-
   def can_attend?(session)
     session_time = session.start_time_decimal
     session_length = session.duration.to_f/60
