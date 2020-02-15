@@ -52,7 +52,7 @@ class Membership
   end
 
   def self.all()
-    sql = "SELECT * FROM memberships"
+    sql = "SELECT * FROM memberships ORDER BY (end_time - start_time) DESC"
     return SqlRunner.run(sql).map {|membership| Membership.new(membership)}
   end
 
