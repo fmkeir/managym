@@ -103,7 +103,7 @@ class Session
   end
 
   def self.all()
-    sql = "SELECT * FROM sessions"
+    sql = "SELECT * FROM sessions ORDER BY start_time"
     return SqlRunner.run(sql).map {|session| Session.new(session)}
   end
 
