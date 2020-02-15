@@ -16,10 +16,12 @@ class Session
     @duration = options["duration"].to_i
   end
 
+  # Original method used - Inefficiently creates member objects just to count them.
   # def enough_space?()
   #   return members().count() < capacity()
   # end
 
+  # Next method used which completes the whole comparison in SQL. Less readable/resusable but more efficient.
   # def enough_space?()
   #   sql = "SELECT
   #   (SELECT count(members.*) FROM members
@@ -33,6 +35,7 @@ class Session
   #   return SqlRunner.run(sql, values)[0]["result"] == "t"
   # end
 
+  # Final method used which compromises to count the rows in SQL and use Ruby for the comparison. Creates a function members_count() which can be used elsewhere.
   def enough_space?()
     return members_count() < capacity()
   end
