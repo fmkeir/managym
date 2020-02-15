@@ -82,7 +82,7 @@ class Member
   end
 
   def self.all()
-    sql = "SELECT * FROM members"
+    sql = "SELECT * FROM members ORDER BY last_name, first_name"
     return SqlRunner.run(sql).map {|member| Member.new(member)}
   end
 
