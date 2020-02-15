@@ -36,7 +36,7 @@ class Room
   end
 
   def self.all()
-    sql = "SELECT * FROM rooms"
+    sql = "SELECT * FROM rooms ORDER by name"
     return SqlRunner.run(sql).map {|room| Room.new(room)}
   end
 
