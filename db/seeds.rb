@@ -87,10 +87,15 @@ room1 = Room.new({
   })
 room2 = Room.new({
   "name" => "Weights",
-  "capacity" => 30,
+  "capacity" => 20,
+  })
+room3 = Room.new({
+  "name" => "Main hall",
+  "capacity" => 40,
   })
 room1.save()
 room2.save()
+room3.save()
 
 session1 = Session.new({
   "type" => "Spin",
@@ -106,8 +111,24 @@ session2 = Session.new({
   "start_time" => "2020-02-14 19:15:00",
   "duration" => 60
   })
+session3 = Session.new({
+  "type" => "Gymnastics",
+  "trainer" => "Ben Jones",
+  "room_id" => room1.id,
+  "start_time" => "2020-02-11 18:00:00",
+  "duration" => 60
+  })
+session4 = Session.new({
+  "type" => "Strongman",
+  "trainer" => "Anna Telford",
+  "room_id" => room3.id,
+  "start_time" => "2020-02-28 19:30:00",
+  "duration" => 60
+  })
 session1.save()
 session2.save()
+session3.save()
+session4.save()
 
 booking1 = Booking.new({
   "member_id" => member1.id,
