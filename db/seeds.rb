@@ -162,5 +162,13 @@ booking2 = Booking.new({
 booking1.save()
 booking2.save()
 
+# Create a member with no bookings to demonstrate alternate display
+member9 = Member.new({
+  "membership_id" => off_peak.id,
+  "first_name" => "Bill",
+  "last_name" => "Billson",
+  "goal" => "Start fitness"
+  })
+
 binding.pry
 nil
