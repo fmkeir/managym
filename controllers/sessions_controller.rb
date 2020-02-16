@@ -2,7 +2,11 @@ require_relative('../models/session')
 require_relative('../models/room')
 
 get '/sessions' do
-  @sessions = Session.all()
+  if params["start_date"]
+    @sessions = Session.filter_date_range(params["start_date"], params["end_date"])
+  else
+    @sessions = Session.all()
+  end
   erb(:'sessions/index')
 end
 
