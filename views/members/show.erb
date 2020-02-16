@@ -19,6 +19,12 @@
     <td><%= session.start_time %></td>
     <td><%= session.duration %> mins</td>
     <td><%= session.trainer %></td>
+    <td><a href="/sessions/<%= session.id %>">View session</a></td>
+    <td>
+      <form class="" action="/bookings/<%= booking.id %>/delete" method="post">
+        <input type="submit" value="Delete booking">
+      </form>
+    </td>
   </tr>
   <% end %>
 </table>

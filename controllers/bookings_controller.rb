@@ -27,8 +27,11 @@ post '/bookings' do
 end
 
 post "/bookings/:id/delete" do
-  Booking.find(params[:id]).delete()
-  redirect to "/bookings"
+  booking = Booking.find(params[:id])
+  booking.delete()
+  member_id = booking.member().id()
+  member_page = "/members/#{member_id}"
+  redirect to member_page
 end
 
 # Bookings can't be edited only created/deleted
