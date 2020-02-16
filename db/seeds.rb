@@ -108,14 +108,14 @@ session1 = Session.new({
   "type" => "Circuits",
   "trainer" => "George Smith",
   "room_id" => room1.id,
-  "start_time" => "2020-02-14 15:30:00",
+  "start_time" => "2020-02-11 15:30:00",
   "duration" => 30
   })
 session2 = Session.new({
   "type" => "Powerlifting",
   "trainer" => "Nicole Greene",
   "room_id" => room2.id,
-  "start_time" => "2020-02-14 19:15:00",
+  "start_time" => "2020-02-11 19:15:00",
   "duration" => 60
   })
 session3 = Session.new({
@@ -129,7 +129,7 @@ session4 = Session.new({
   "type" => "Strongman",
   "trainer" => "Anna Telford",
   "room_id" => room3.id,
-  "start_time" => "2020-02-28 20:00:00",
+  "start_time" => "2020-02-11 20:00:00",
   "duration" => 60
   })
 

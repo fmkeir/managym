@@ -1,8 +1,13 @@
 <form action="/rooms/<%= @room.id %>" method="post">
-  <label for="name">Name:</label>
-    <input type="text" name="name" value="<%= @room.name %>"/> <br/>
-  <label for="capacity">Capacity:</label>
-    <input type="text" name="capacity" value="<%= @room.capacity %>"/> <br/>
-
-  <input type="submit" value="Confirm Changes"/>
+<table>
+  <tr>
+    <td><label for="name">Name:</label></td>
+    <td><input type="text" name="name" value="<%= @room.name %>"/></td>
+  </tr>
+  <tr>
+    <td><label for="capacity">Capacity:</label></td>
+    <td><input type="number" name="capacity" value="<%= @room.capacity %>"/></td>
+  </tr>
+</table> <br/>
+<input type="submit" value="Confirm Changes"/>
 </form>

@@ -1,6 +1,15 @@
-<h1><b>Room details:</b> </h1>
-<p><b>Name:</b> <%= @room.name %></p>
-<p><b>Capacity:</b> <%= @room.capacity %></p>
+<h1><b>Room details:</b></h1>
+<table>
+  <tr>
+    <td><b>Name:</b></td>
+    <td><%= @room.name %></td>
+  </tr>
+  <tr>
+    <td><b>Capacity:</b></td>
+    <td><%= @room.capacity %></td>
+  </tr>
+</table> <br/>
+
 <form class="" action="/rooms/<%= @room.id %>/edit" method="get">
   <input type="submit" value="Edit room">
 </form>

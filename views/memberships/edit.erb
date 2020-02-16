@@ -1,10 +1,23 @@
 <form action="/memberships/<%= @membership.id %>" method="post">
-  <label for="type">Membership type:</label>
+<table>
+  <tr>
+  <td><label for="type">Membership type:</label></td>
+  <td>
     <input type="text" name="type" value="<%= @membership.type %>"/> <br/>
-  <label for="start_time">Allow access from:</label>
-    <input type="text" name="start_time" value="<%= @membership.start_time %>"/> <br/>
-  <label for="end_time">Allow access until:</label>
-    <input type="text" name="end_time" value="<%= @membership.end_time %>"/> <br/>
-
-  <input type="submit" value="Confirm Changes"/>
+  </td>
+  </tr>
+  <tr>
+  <td><label for="start_time">Allow access from:</label></td>
+  <td>
+    <input type="time" name="start_time" value="<%= @membership.start_time %>"/>
+  </td>
+  </tr>
+  <tr>
+  <td><label for="end_time">Allow access until:</label></td>
+  <td>
+    <input type="time" name="end_time" value="<%= @membership.end_time %>"/>
+  </td>
+  </tr>
+</table> <br/>
+<input type="submit" value="Confirm Changes"/>
 </form>

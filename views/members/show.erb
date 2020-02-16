@@ -1,6 +1,14 @@
 <h1><b>Member profile:</b> <%= @member.full_name %></h1>
-<p><b>Membership type:</b> <%= @member.membership_type_styled %></p>
-<p><b>Goal:</b> <%= @member.goal %></p>
+<table>
+  <tr>
+    <td><b>Membership type:</b></td>
+    <td><%= @member.membership_type_styled %></td>
+  </tr>
+  <tr>
+    <td><b>Goal:</b></td>
+    <td><%= @member.goal %></td>
+  </tr>
+</table> <br/>
 
 <% if @member.bookings.count >= 1 %>
 <table>

@@ -1,6 +1,14 @@
 <h1><%= @membership.type_styled %> <b>membership details:</b> </h1>
-<p><b>Access from:</b> <%= @membership.start_time %></p>
-<p><b>Access to:</b> <%= @membership.end_time %></p>
+<table>
+  <tr>
+    <td><b>Access from:</b></td>
+    <td><%= @membership.start_time %></td>
+  </tr>
+  <tr>
+    <td><b>Access to:</b></td>
+    <td><%= @membership.end_time %></td>
+  </tr>
+</table> <br/>
 <form class="" action="/memberships/<%= @membership.id %>/edit" method="get">
   <input type="submit" value="Edit membership">
 </form>
