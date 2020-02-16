@@ -40,7 +40,7 @@ class Session
     return members_count() < capacity()
   end
 
-  def member_in_class?(member)
+  def members_includes?(member)
     sql = "SELECT members.id FROM members
     INNER JOIN bookings
     ON bookings.member_id = members.id

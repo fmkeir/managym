@@ -38,6 +38,8 @@ class Booking
   end
 
   def self.create(member, session)
+    if session.members_includes?(member)
+      return "This member is already signed up to this session."
     if !member.can_attend?(session)
       return "This member's membership isn't valid for the class. Please try another timeslot."
     elsif !session.enough_space?()
