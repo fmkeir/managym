@@ -4,6 +4,8 @@ require_relative('../models/session')
 require_relative('../models/booking')
 require_relative('../models/room')
 require_relative('../models/membership')
+require_relative('../helpers/seeding')
+srand(8)
 
 Booking.delete_all()
 Member.delete_all()
@@ -72,14 +74,12 @@ member8 = Member.new({
   "last_name" => "Jacob",
   "goal" => "Get hench"
   })
-member1.save()
-member2.save()
-member3.save()
-member4.save()
-member5.save()
-member6.save()
-member7.save()
-member8.save()
+
+members = [
+  member1, member2, member3, member4,
+  member5, member6, member7, member8
+  ]
+members.each {|member| member.save()}
 
 room1 = Room.new({
   "name" => "Studio",
@@ -103,7 +103,7 @@ room3.save()
 room4.save()
 
 session1 = Session.new({
-  "type" => "Spin",
+  "type" => "Circuits",
   "trainer" => "George Smith",
   "room_id" => room1.id,
   "start_time" => "2020-02-14 15:30:00",
@@ -130,51 +130,14 @@ session4 = Session.new({
   "start_time" => "2020-02-28 20:00:00",
   "duration" => 60
   })
-session3.save()
-session4.save()
+
+sessions = [session1, session2, session3, session4]
 Session.recurring_save(session1, 7)
 Session.recurring_save(session2, 7)
+Session.recurring_save(session3, 7)
+Session.recurring_save(session4, 7)
 
-booking1 = Booking.new({
-  "member_id" => member1.id,
-  "session_id" => session1.id
-  })
-booking2 = Booking.new({
-  "member_id" => member2.id,
-  "session_id" => session1.id
-  })
-booking3 = Booking.new({
-  "member_id" => member3.id,
-  "session_id" => session1.id
-  })
-booking4 = Booking.new({
-  "member_id" => member4.id,
-  "session_id" => session1.id
-  })
-booking5 = Booking.new({
-  "member_id" => member5.id,
-  "session_id" => session2.id
-  })
-booking6 = Booking.new({
-  "member_id" => member6.id,
-  "session_id" => session2.id
-  })
-booking7 = Booking.new({
-  "member_id" => member7.id,
-  "session_id" => session2.id
-  })
-booking8 = Booking.new({
-  "member_id" => member8.id,
-  "session_id" => session2.id
-  })
-booking1.save()
-booking2.save()
-booking3.save()
-booking4.save()
-booking5.save()
-booking6.save()
-booking7.save()
-booking8.save()
+100.times {random_booking(members, sessions)}
 
 binding.pry
 nil
