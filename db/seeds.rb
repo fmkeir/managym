@@ -13,6 +13,8 @@ Session.delete_all()
 Room.delete_all()
 Membership.delete_all()
 
+# Populate database with fixed random data
+
 standard = Membership.new({
   "type" => "standard",
   "start_time" => "07:00",
@@ -138,6 +140,27 @@ Session.recurring_save(session3, 3)
 Session.recurring_save(session4, 3)
 
 random_booking(members, sessions, 20)
+
+# Add a class near booking capacity to demonstrate capacity, membership, and member in class errors
+error_session = Session.new({
+  "type" => "Private group",
+  "trainer" => "Eleanor Shellstrop",
+  "room_id" => room4.id,
+  "start_time" => "2020-02-28 14:00:00",
+  "duration" => 30
+  })
+error_session.save()
+
+booking1 = Booking.new({
+  "member_id" => member1.id,
+  "session_id" => error_session.id,
+  })
+booking2 = Booking.new({
+  "member_id" => member3.id,
+  "session_id" => error_session.id,
+  })
+booking1.save()
+booking2.save()
 
 binding.pry
 nil
