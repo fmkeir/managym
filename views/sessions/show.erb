@@ -1,10 +1,10 @@
 <h1><b>Class information:</b> <%= @session.type %></h1>
-<h2><b>Room:</b> <%= @session.room_name %></h2>
-<h2><b>Start time:</b> <%= @session.start_time %></h2>
-<h2><b>Duration:</b> <%= @session.duration %></h2>
-<h2><b>Trainer:</b> <%= @session.trainer %></h2>
-<h2><b>Capacity:</b> <%= @session.capacity %></h2>
-<h2><b>Members signed up for session:</b></h2>
+<p><b>Room:</b> <%= @session.room_name %></p>
+<p><b>Start time:</b> <%= @session.start_time %></p>
+<p><b>Duration:</b> <%= @session.duration %></p>
+<p><b>Trainer:</b> <%= @session.trainer %></p>
+<p><b>Capacity:</b> <%= @session.capacity %></p>
+<p><b>Members signed up for session:</b></p>
 
 <% if @session.members.count >= 1 %>
 <table>

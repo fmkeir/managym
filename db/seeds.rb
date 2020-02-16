@@ -96,7 +96,7 @@ room3 = Room.new({
   "capacity" => 40,
   })
 room4 = Room.new({
-  "name" => "PT area",
+  "name" => "PT Area",
   "capacity" => 2,
   })
 room1.save()
