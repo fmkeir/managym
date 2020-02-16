@@ -4,12 +4,6 @@ DROP TABLE IF EXISTS sessions;
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS memberships;
 
-CREATE TABLE rooms (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255),
-  capacity INT
-);
-
 CREATE TABLE memberships (
   id SERIAL PRIMARY KEY,
   type VARCHAR(255),
@@ -17,12 +11,10 @@ CREATE TABLE memberships (
   end_time TIME
 );
 
-CREATE TABLE members (
+CREATE TABLE rooms (
   id SERIAL PRIMARY KEY,
-  membership_id INT REFERENCES memberships(id) ON DELETE CASCADE,
-  first_name VARCHAR(255),
-  last_name VARCHAR(255),
-  goal VARCHAR(255)
+  name VARCHAR(255),
+  capacity INT
 );
 
 CREATE TABLE sessions (
@@ -32,6 +24,14 @@ CREATE TABLE sessions (
   room_id INT REFERENCES rooms(id) ON DELETE CASCADE,
   start_time TIMESTAMP,
   duration INT
+);
+
+CREATE TABLE members (
+  id SERIAL PRIMARY KEY,
+  membership_id INT REFERENCES memberships(id) ON DELETE CASCADE,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  goal VARCHAR(255)
 );
 
 CREATE TABLE bookings (
