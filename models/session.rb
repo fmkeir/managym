@@ -40,6 +40,15 @@ class Session
     return members_count() < capacity()
   end
 
+  def member_in_class?(member)
+    sql = "SELECT members.id FROM members
+    INNER JOIN bookings
+    ON bookings.member_id = members.id
+    WHERE bookings.session_id = $1 and members.id = $2"
+    values = [@id, member.id]
+    return SqlRunner.run(sql, values).ntuples > 0
+  end
+
   def start_time_decimal()
     return time_decimal(@start_time)
   end
