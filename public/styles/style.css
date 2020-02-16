@@ -24,6 +24,7 @@ nav {
   padding-top: 20px;
   margin-right: 10px;
   opacity: 90%;
+  z-index: 1;
 }
 
 nav a {
@@ -39,15 +40,6 @@ form {
   font-size: 40px;;
 }
 
-body {
-  margin-left: 195px;
-  background-color: #99ccff;
-  color: white;
-  text-shadow: 0 0 1rem white;
-  text-shadow: 0 0 0.5rem black;
-  font-size: 20px;
-}
-
 footer {
   color: white;
   font-size: 15px;
@@ -58,20 +50,25 @@ footer {
 }
 
 body {
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: auto;
-  min-height: 100%;
-  min-width: 100%;
-  max-width: 200%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  margin-left: 195px;
+  background-color: #99ccff;
   background-image:linear-gradient(
     rgba(0, 0, 10, 0.6),
     rgba(0, 0, 10, 0.6)
   ), url('../images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* height: auto; */
+  min-height: 100%;
+  min-width: 100%;
+  max-width: 200%;
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  color: white;
+  text-shadow: 0 0 1rem white;
+  text-shadow: 0 0 0.5rem black;
+  font-size: 20px;
 }
 
 table {
