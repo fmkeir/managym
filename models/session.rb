@@ -127,7 +127,7 @@ class Session
   end
 
   def self.recurring_save(options, days_to_repeat)
-    days_to_repeat.times do
+    days_to_repeat.to_i.times do
       Session.new(options).save()
       new_date = DateTime.parse(options["start_time"]) + 1
       options["start_time"] = new_date.to_s

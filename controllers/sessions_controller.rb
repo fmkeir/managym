@@ -23,7 +23,7 @@ get '/sessions/:id/edit' do
 end
 
 post '/sessions' do
-  Session.new(params).save()
+  Session.recurring_save(params, params["days_to_repeat"])
   redirect to '/sessions'
 end
 
