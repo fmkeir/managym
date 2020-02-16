@@ -133,4 +133,10 @@ class Session
       options["start_time"] = new_date.to_s
     end
   end
+
+  def self.filter_date_range(start_date, end_date)
+    sql = "SELECT * FROM sessions WHERE start_time >= $1 AND start_time <= $2"
+    values = [start_date, end_date]
+    return SqlRunner.run(sql, values).map {|session| Session.new(session)}
+  end
 end
