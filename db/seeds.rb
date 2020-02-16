@@ -132,12 +132,12 @@ session4 = Session.new({
   })
 
 sessions = [session1, session2, session3, session4]
-Session.recurring_save(session1, 7)
-Session.recurring_save(session2, 7)
-Session.recurring_save(session3, 7)
-Session.recurring_save(session4, 7)
+Session.recurring_save(session1, 3)
+Session.recurring_save(session2, 3)
+Session.recurring_save(session3, 3)
+Session.recurring_save(session4, 3)
 
-100.times {random_booking(members, sessions)}
+random_booking(members, sessions, 20)
 
 binding.pry
 nil
