@@ -15,7 +15,7 @@
       <td>
           <select name="session_id">
             <% for session in @sessions %>
-            <option value="<%= session.id%>"><%= session.type %> with <%= session.trainer %></option>
+            <option value="<%= session.id%>"><%= session.type %> with <%= session.trainer %> on <%= session.start_time %></option>
             <% end %>
           </select>
       </td>

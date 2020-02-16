@@ -1,20 +1,35 @@
 <form action="/sessions" method="post">
-  <label for="type">Type:</label>
-    <input type="text" name="type"/> <br/>
-  <label for="room_id">Room:</label>
-    <select name="room_id">
-      <% for room in @rooms %>
-      <option value="<%= room.id%>"><%= room.name %></option>
-      <% end %>
-    </select> <br>
-  <label for="start_time">Time:</label>
-    <input type="datetime-local" name="start_time" required/> <br/>
-  <label for="duration">Duration in minutes:</label>
-    <input type="text" name="duration"/> <br/>
-  <label for="trainer">Trainer:</label>
-    <input type="text" name="trainer"/> <br/>
-    <label for="days_to_repeat">Number of days to schedule:</label>
-      <input type="number" name="days_to_repeat" min="1" max="7"/> <br/>
-
-  <input type="submit" value="Confirm Changes"/>
+<table>
+  <tr>
+    <td><label for="type">Type:</label><td>
+    <td><input type="number" name="type"/></td>
+  </tr>
+  <tr>
+    <td><label for="room_id">Room:</label><td>
+    <td>
+      <select name="room_id">
+        <% for room in @rooms %>
+        <option value="<%= room.id%>"><%= room.name %></option>
+        <% end %>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td><label for="start_time">Time:</label><td>
+    <td><input type="datetime-local" name="start_time" required/></td>
+  </tr>
+  <tr>
+    <td><label for="duration">Duration in minutes:</label><td>
+    <td><input type="text" name="duration"/></td>
+  </tr>
+  <tr>
+    <td><label for="trainer">Trainer:</label><td>
+    <td><input type="text" name="trainer"/></td>
+  </tr>
+  <tr>
+    <td><label for="days_to_repeat">Number of days to schedule:</label><td>
+    <td><input type="number" name="days_to_repeat" min="1" max="7"/></td>
+  </tr>
+</table> <br/>
+<input type="submit" value="Create session"/>
 </form>

@@ -1,16 +1,28 @@
 <form action="/members" method="post">
-  <label for="first_name">First Name:</label>
-    <input type="text" name="first_name"/><br/>
-  <label for="last_name">Last Name:</label>
-    <input type="text" name="last_name"/><br/>
-  <label for="membership_id">Membership type:</label>
-    <select name="membership_id">
+<table>
+  <tr>
+    <td><label for="first_name">First Name:</label><td>
+    <td><input type="text" name="first_name"/></td>
+  </tr>
+  <tr>
+    <td><label for="last_name">Last Name:</label><td>
+    <td><input type="text" name="last_name"/></td>
+  </tr>
+  <tr>
+    <td><label for="membership_id">Membership type:</label><td>
+    <td>
+      <select name="membership_id">
       <% for membership in @memberships %>
       <option value="<%= membership.id%>"><%= membership.type_styled %></option>
       <% end %>
-    </select> <br/>
-  <label for="goal">Goal:</label>
-    <input type="text" name="goal"/> <br/>
-
-  <input type="submit" value="Create Member"/>
+    </select>
+  </td>
+  </tr>
+  <tr>
+    <td><label for="goal">Goal:</label><td>
+    <td><input type="text" name="goal"/></td>
+  </tr>
+  <tr>
+</table> <br/>
+<input type="submit" value="Create Member"/>
 </form>

@@ -1,8 +1,13 @@
 <form action="/rooms" method="post">
-  <label for="name">Name:</label>
-    <input type="text" name="name"/><br/>
-  <label for="capacity">Capacity:</label>
-    <input type="text" name="capacity"/> <br/>
-
-  <input type="submit" value="Create Room"/>
+<table>
+  <tr>
+    <td><label for="name">Name:</label><td>
+    <td><input type="text" name="name"/></td>
+  </tr>
+  <tr>
+    <td><label for="capacity">Capacity:</label><td>
+    <td><input type="number" name="capacity"/></td>
+  </tr>
+</table> <br/>
+<input type="submit" value="Create Room"/>
 </form>
