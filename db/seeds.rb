@@ -1,4 +1,3 @@
-require('pry')
 require_relative('../models/member')
 require_relative('../models/session')
 require_relative('../models/booking')
@@ -169,6 +168,3 @@ member9 = Member.new({
   "last_name" => "Billson",
   "goal" => "Start fitness"
   })
-
-binding.pry
-nil

@@ -1,11 +1,15 @@
 require('pg')
+require('uri')
 
 class SqlRunner
   def self.run(sql,values = [])
     begin
+      uri = URI.parse(ENV['DATABASE_URL'])
       db = PG.connect ({
-        dbname: 'gym',
-        host: 'localhost'
+        host: uri.host,
+        dbname: uri.path[1..-1],
+        user: uri.user,
+        password: uri.password
         })
       db.prepare("query", sql)
       result = db.exec_prepared("query", values)
