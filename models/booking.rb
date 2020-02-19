@@ -55,6 +55,11 @@ class Booking
     return SqlRunner.run(sql).map {|booking| Booking.new(booking)}
   end
 
+  def self.count()
+    sql = "SELECT count(*) FROM bookings"
+    return SqlRunner.run(sql)[0]["count"].to_i
+  end
+
   def self.delete_all()
     sql = "DELETE FROM bookings"
     SqlRunner.run(sql)

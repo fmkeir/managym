@@ -9,6 +9,7 @@ also_reload('models/*')
 
 get '/' do
   @member_count = Member.count()
+  @booking_count = Booking.count()
   @session_count = Session.count()
   @room_count = Room.count()
   erb(:index)
