@@ -11,6 +11,7 @@ body {
   font-size: 20px;
   background-color: #07222E;
   overscroll-behavior: none;
+  overflow-x: hidden;
 }
 
 .background {
