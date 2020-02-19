@@ -132,13 +132,13 @@ session4 = Session.new({
   "duration" => 60
   })
 
-sessions = [session1, session2, session3, session4]
 Session.recurring_save(session1, 3)
 Session.recurring_save(session2, 3)
 Session.recurring_save(session3, 3)
 Session.recurring_save(session4, 3)
+sessions = Session.all()
 
-random_booking(members, sessions, 20)
+random_booking(members, sessions, 30)
 
 # Add a class near booking capacity to demonstrate capacity, membership, and member in class errors
 error_session = Session.new({
