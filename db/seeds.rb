@@ -138,7 +138,7 @@ Session.recurring_save(session3, 3)
 Session.recurring_save(session4, 3)
 sessions = Session.all()
 
-random_booking(members, sessions, 30)
+random_booking(members, sessions, 60)
 
 # Add a class near booking capacity to demonstrate capacity, membership, and member in class errors
 error_session = Session.new({
