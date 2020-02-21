@@ -3,7 +3,7 @@ require('uri')
 
 class SqlRunner
   def self.run(sql,values = [])
-    if ENV['RACK_ENV'] == "production"
+    if ENV["DATABASE_URL"]
       uri = URI.parse(ENV["DATABASE_URL"])
       database_config = {
         host: uri.host,
