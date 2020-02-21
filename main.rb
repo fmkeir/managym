@@ -14,3 +14,8 @@ get '/' do
   @room_count = Room.count()
   erb(:index)
 end
+
+error 404 do
+  @message = "404: We couldn't find that page!"
+  erb(:error)
+end
