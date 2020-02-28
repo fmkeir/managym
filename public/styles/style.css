@@ -79,10 +79,16 @@ input {
 
 table {
   text-align: left;
+  border-radius: 10px;
+  background: rgba(59, 69, 76, 0.6);
 }
 
 th, td {
-  padding-right:20px;
+  padding-right: 10px;
+}
+
+tr:hover {
+  background: rgba(59, 69, 90, 0.9);
 }
 
 .home hr {
