@@ -21,7 +21,7 @@ class Session
   #   return members().count() < capacity()
   # end
 
-  # Next method used which completes the whole comparison in SQL. Less readable/resusable but more efficient.
+  # Next method used which completes the whole comparison in SQL. Less readable/reusable but more efficient.
   # def enough_space?()
   #   sql = "SELECT
   #   (SELECT count(members.*) FROM members
