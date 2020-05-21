@@ -101,7 +101,7 @@ end
 #### Seed database with controlled random data
 This method, along with srand, allows for a consistent and large dataset to be generated for testing. Each member is looped through and a series of random bookings made. This helps to minimise wasted attempts from members trying to book sessions they are already in.
 
-The method attempts a random number of bookings for each member, ensuring that each member at least has some bookings. The method prevents an infinite loop by skipping to the next member when the current member has as many attempts as sessions that exist.
+The method attempts a random number of bookings for each member, ensuring that each member has at least some bookings. The method prevents an infinite loop by skipping to the next member when the current member has as many attempts as sessions that exist.
 
 ```ruby
 def random_booking(members, sessions, max_member_bookings)
