@@ -39,7 +39,7 @@ Host the app locally using Sinatra, defaults to port 4567
 ruby main.rb
 ```
 
-### Interesting code snippets
+### Code discussion
 
 #### SQL vs. Ruby for comparisons
 This function checks if there is enough space in a session for another member to join.
