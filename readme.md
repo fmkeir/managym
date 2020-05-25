@@ -2,7 +2,7 @@
 
 [This project is hosted on Heroku](https://managym.herokuapp.com)
 
-This app is the result of my week 4 individual project, for CodeClan's professional software development course. Ruby, Sinatra, and PostgreSQL were used to build a CRUD app with Restful routes.
+This app is the result of my week 5 individual project, for CodeClan's professional software development course. Ruby, Sinatra, and PostgreSQL were used to build a CRUD app with Restful routes.
 
 The project is designed to help a gym manager keep track of members, classes, and bookings. The demo below shows the process of adding a new member, signing them up for a class, and deleting their booking.
 
