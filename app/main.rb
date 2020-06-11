@@ -7,6 +7,8 @@ require_relative('controllers/memberships_controller')
 require_relative('controllers/rooms_controller')
 also_reload('models/*')
 
+set :bind, '0.0.0.0'
+
 get '/' do
   @member_count = Member.count()
   @booking_count = Booking.count()

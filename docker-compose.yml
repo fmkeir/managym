@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./postgres/initdb:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+  managym:
+    build: ./app/
+    ports:
+      - "4567:4567"
+    depends_on:
+      - postgres

@@ -12,7 +12,12 @@ class SqlRunner
         password: uri.password
       }
     else
-      database_config = {host: "localhost", dbname: "gym"}
+      database_config = {
+        host: "postgres",
+        dbname: "postgres",
+        user: "postgres",
+        port: 5432,
+        password: "password"}
     end
     begin
       db = PG.connect(database_config)
