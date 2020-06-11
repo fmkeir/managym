@@ -13,7 +13,7 @@ class SqlRunner
       }
     else
       database_config = {
-        host: "postgres",
+        host: "managym-postgres",
         dbname: "postgres",
         user: "postgres",
         password: "password"}
