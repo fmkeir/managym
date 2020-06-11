@@ -16,7 +16,6 @@ class SqlRunner
         host: "postgres",
         dbname: "postgres",
         user: "postgres",
-        port: 5432,
         password: "password"}
     end
     begin
