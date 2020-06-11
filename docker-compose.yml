@@ -1,6 +1,7 @@
 version: '3'
 services:
   postgres:
+    container_name: managym-postgress
     image: postgres
     restart: always
     volumes:
@@ -9,7 +10,8 @@ services:
       - POSTGRES_PASSWORD=password
     ports:
       - "5432:5432"
-  managym:
+  app:
+    container_name: managym-app
     build: ./app/
     restart: always
     ports:
