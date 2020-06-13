@@ -1,6 +1,6 @@
 ## Codeclan: Project 1 - Managym
 
-[This project is hosted on Heroku](https://managym.herokuapp.com)
+[See the live project](https://managym.fraserkeir.com)
 
 This app is the result of my week 5 individual project, for CodeClan's professional software development course. Ruby, Sinatra, and PostgreSQL were used to build a CRUD app with Restful routes.
 
